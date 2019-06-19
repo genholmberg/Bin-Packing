@@ -1,4 +1,4 @@
-# CSCI443_Bin_Packing
+# Bin_Packing
 
 Seeking to pack n integers into bins of fixed capacity, using the minimal number of bins possible, the One Dimensional Minimum Bin Packing Problem (BPP) is an NP-Hard problem. The Evolutionary Algorithm (EA) seeks a candidate solution for BPP. In attempts to find a candidate solution for BPP the EA uses mutation, a round robin selection, strings of floating point values as chromosomes, and parameters. Depending on the combination of the parameters, the behavior of the EA can greatly change.
 
