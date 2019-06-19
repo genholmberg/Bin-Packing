@@ -46,7 +46,6 @@ DEBUG            = args.debug
 CONSTANT         = args.constant
 SURVIAL            = args.survial
 
-# TODO: change to work with non k-ary
 def mutation(mutate_me):
 
 	removed_bins = []
@@ -87,8 +86,6 @@ def selection():
 				home_opponent.rank += 1
 
 	competitors.sort(key=operator.attrgetter('rank'))
-	# for x in range(len(competitors)):
-	# 		print("chromosome [%d] fitness [%f] rank [%d]" % (x, competitors[x].fitness, competitors[x].rank) )
 	for x in range(len(competitors)):
 		competitors[x].rank = 0
 	# return the best chromosome from the sample set
@@ -120,7 +117,6 @@ def Main_driver():
 	if(DEBUG):
 		print("---DEBUG MODE ACTIVATED---")
 		print("-----------------------------------------------------------------------------------")
-		# print("Chromosome number | Fitness | Bin Count")
 	else:
 		print("Current Generation |Worst Fitness  |Mean Fitness  |Best Fitness   |Lowest Bin Count")
 
@@ -136,10 +132,6 @@ def Main_driver():
 			CURR_POP.sort(key=operator.attrgetter('fitness'), reverse=True)
 			dead_chr = CURR_POP.pop()
 			CURR_POP.append(the_lucky_one)
-			# print("-" * 20)
-			# print("Number of bins: [%d]" % len(dead_chr.bins))
-			# print("Current fitness of dead chr: [%f]" % dead_chr.fitness)
-			# print("-" * 20)
 
 		if(DEBUG):
 			CURR_POP.sort(key=operator.attrgetter('fitness'), reverse=True)
@@ -149,7 +141,6 @@ def Main_driver():
 			for b in range(len(CURR_POP)):
 				print("%-18d| %-8f| %-10d" %(b, CURR_POP[b].fitness, len(CURR_POP[b].bins)))
 		else:
-		# if(Generation % POP_SIZE == 0):
 			CURR_POP.sort(key=operator.attrgetter('fitness'), reverse=True)
 			mean_fitness = sum(curr.fitness for curr in CURR_POP) / len(CURR_POP)
 			print("%-19i|%-15f|%-14f|%-15f|%-17i" %
